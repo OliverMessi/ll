@@ -2,6 +2,8 @@ package com.wdm.lifestyle.controller;
 
 import com.wdm.lifestyle.pojo.User;
 import com.wdm.lifestyle.result.Result;
+import com.wdm.lifestyle.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 
-import java.util.Objects;
-
 /**
  * @author wdm
  * @create 2020-06-30 19:46
  **/
 @Controller
 public class LoginController {
+    @Autowired
+    UserService userService;
+
     @CrossOrigin
     @PostMapping(value = "api/login")
     @ResponseBody
@@ -24,12 +27,12 @@ public class LoginController {
         // 对 html 标签进行转义，防止 XSS 攻击
         String userName = user.getUserName();
         userName = HtmlUtils.htmlEscape(userName);
-        if(!Objects.equals("admin", userName) || !Objects.equals("123456", user.getPassWord())){
-            String message = "账号密码错误";
-            System.out.println("test");
+        User u = userService.get(userName, user.getPassWord());
+        if (null == u) {
             return new Result(400);
-        }else {
+        } else {
             return new Result(200);
         }
+
     }
 }

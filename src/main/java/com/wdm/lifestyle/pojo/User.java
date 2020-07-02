@@ -1,10 +1,21 @@
 package com.wdm.lifestyle.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+import javax.persistence.*;
+
 /**
  * @author wdm
  * @create 2020-06-30 19:42
  **/
+@Entity
+@Table(name = "user")
+@JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     int id;
     String userName;
     String passWord;
