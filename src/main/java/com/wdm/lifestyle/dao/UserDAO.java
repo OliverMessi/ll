@@ -1,6 +1,6 @@
 package com.wdm.lifestyle.dao;
 
-import com.wdm.lifestyle.pojo.User;
+import com.wdm.lifestyle.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserDAO extends JpaRepository<User,Integer> {

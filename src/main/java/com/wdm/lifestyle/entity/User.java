@@ -1,4 +1,4 @@
-package com.wdm.lifestyle.pojo;
+package com.wdm.lifestyle.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

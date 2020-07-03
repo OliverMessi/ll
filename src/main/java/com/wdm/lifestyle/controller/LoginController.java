@@ -1,8 +1,8 @@
 package com.wdm.lifestyle.controller;
 
-import com.wdm.lifestyle.pojo.User;
+import com.wdm.lifestyle.entity.User;
 import com.wdm.lifestyle.result.Result;
-import com.wdm.lifestyle.service.UserService;
+import com.wdm.lifestyle.service.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,7 +27,7 @@ public class LoginController {
         // 对 html 标签进行转义，防止 XSS 攻击
         String userName = user.getUserName();
         userName = HtmlUtils.htmlEscape(userName);
-        User u = userService.get(userName, user.getPassWord());
+        User u = userService.getInfo(userName, user.getPassWord());
         if (null == u) {
             return new Result(400);
         } else {
