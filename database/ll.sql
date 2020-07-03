@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50730
 File Encoding         : 65001
 
-Date: 2020-07-03 16:12:10
+Date: 2020-07-03 17:56:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,12 +26,13 @@ CREATE TABLE `update_records` (
   `create_time` varchar(255) DEFAULT NULL COMMENT '更新时间',
   `commit_persion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of update_records
 -- ----------------------------
 INSERT INTO `update_records` VALUES ('1', '2019/4/13', '实现上传至服务器和输入 URL 两种方式添加封面', '2019/4/11 09:02', 'wdm');
+INSERT INTO `update_records` VALUES ('2', '2020/07/03', '更新首页', '2020/07/03 16：15', 'wdm');
 
 -- ----------------------------
 -- Table structure for user
